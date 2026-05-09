@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizjoterapia Dziecięca 3D | Nowoczesna Terapia</title>
+    <meta name="description" content="Nowoczesna fizjoterapia dziecięca z elementami 3D. Interaktywna strona, premium design, najlepsze metody terapii dla Twojego dziecka.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- 3D Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="loader-text">FIZJO<span>KIDS</span></h2>
+            <p>Ładowanie doświadczenia...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-3d" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-3d">
+                <div class="logo-3d-inner">
+                    <span class="logo-icon-3d"><img class="logo" src="./pics/logo.png" alt="FizjoKIDS Logo"></span>
+                    <!-- <span class="logo-text-3d">FIZJO<span class="logo-highlight">KIDS</span></span> -->
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link-3d" data-text="Start">Start</a>
+                <a href="#about" class="nav-link-3d" data-text="O mnie">O mnie</a>
+                <a href="#services" class="nav-link-3d" data-text="Metody">Metody</a>
+                <a href="#gallery" class="nav-link-3d" data-text="Galeria">Galeria</a>
+                <a href="#pricing" class="nav-link-3d" data-text="Cennik">Cennik</a>
+                <a href="#contact" class="nav-link-3d" data-text="Kontakt">Kontakt</a>
+            </div>
+            <button class="nav-cta-3d" onclick="location.href='#contact'">
+                <span>Umów wizytę</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="mobile-toggle-3d" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-3d" id="home">
+        <div class="hero-3d-content">
+            <div class="hero-3d-text">
+                <div class="hero-badge-3d" data-animate="fade-up">
+                    <i class="fas fa-star"></i>
+                    <span>Fizjoterapia dziecięca</span>
+                </div>
+                <h1 class="hero-title-3d" data-animate="fade-up" data-delay="100">
+                    Zadbaj o swobodny ruch swojego dziecka od
+                    <span class="gradient-text-3d">pierwszych dni</span> <br>życia
+                </h1>
+                <p class="hero-subtitle-3d" data-animate="fade-up" data-delay="200">
+                    Nowoczesna fizjoterapia dziecięca i niemowlęca w przyjaznej atmosferze. 
+                    Pomagam maluchom bezpiecznie odkrywać świat, a rodzicom... <strong>odzyskać spokój</strong>.
+                </p>
+                <div class="hero-buttons-3d" data-animate="fade-up" data-delay="300">
+                    <button class="btn-3d btn-primary-3d" onclick="location.href='#contact'">
+                        <span>Umów konsultację</span>
+                        <i class="fas fa-calendar-check"></i>
+                    </button>
+                    <button class="btn-3d btn-outline-3d" onclick="location.href='#services'">
+                        <span>Poznaj metody</span>
+                        <i class="fas fa-play-circle"></i>
+                    </button>
+                </div>
+                <!-- <div class="hero-stats-3d" data-animate="fade-up" data-delay="400">
+
+                    
+                    <div class="stat-3d">
+                        <span class="stat-number-3d" data-count="2500"></span><span class="stat-suffix"></span>
+                        <span class="stat-label"></span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-3d">
+                        <span class="stat-number-3d" data-count="12">0</span>
+                        <span class="stat-label">Lat doświadczenia</span>
+                    </div>
+                    
+                    <div class="stat-divider"></div>
+                    <div class="stat-3d">
+                        <span class="stat-number-3d" data-count="98"></span><span class="stat-suffix"></span>
+                        <span class="stat-label"></span>
+                    </div> 
+                </div> -->
+            </div>
+            <div class="hero-3d-visual" data-animate="fade-left" data-delay="200">
+                <div class="hero-card-3d floating-3d">
+                    <div class="hero-card-inner">
+                        <div class="hero-card-icon"><i class="fas fa-baby"></i></div>
+                        <h3>Terapia niemowląt</h3>
+                        <p>Od pierwszych dni życia</p>
+                    </div>
+                </div>
+                <div class="hero-card-3d-2 floating-3d-2">
+                    <div class="hero-card-inner">
+                        <div class="hero-card-icon"><i class="fas fa-shoe-prints"></i></div>
+                        <h3>3D Terapia stóp</h3>
+                        <p>Nowoczesne metody</p>
+                    </div>
+                </div>
+                <div class="hero-image-3d">
+                    <div class="image-placeholder-3d">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Twoje zdjęcie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="scroll-indicator-3d">
+            <div class="mouse-3d">
+                <div class="wheel-3d"></div>
+            </div>
+            <span>Przewiń w dół</span>
+        </div> -->
+    </section>
+
+    <!-- About Section -->
+    <section class="section-3d" id="about">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">O mnie</span>
+                <h2 class="section-title-3d">Poznaj swoją terapeutkę <span class="gradient-text-3d">Justynę Wysogląd</span></h2>
+            </div>
+            <div class="about-3d-grid">
+                <div class="about-3d-image" data-animate="fade-right">
+                    <div class="image-frame-3d">
+                        <div class="image-placeholder-3d large">
+                            <i class="fas fa-user-md"></i>
+                            <span>Twoje zdjęcie</span>
+                        </div>
+                        <div class="image-badge-3d">
+                            <i class="fas fa-award"></i>
+                            <span>20 lat doświadczenia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-3d-content" data-animate="fade-left">
+                    <p class="about-text-3d">
+                        Jestem fizjoterapeutką dziecięcą z pasją do pomagania najmłodszym. Przez 20 lat pomogłam ponad 2500 dzieciom w prawidłowym rozwoju ruchowym. 
+                        <br>W moim gabinecie najważniejsze jest poczucie bezpieczeństwa – zarówno malucha, jak i zatroskanego rodzica. Każde dziecko to dla mnie osobna historia, dlatego terapię zawsze dobieram indywidualnie, często ukrywając ją pod postacią wesołej zabawy
+                    </p>
+                    <div class="about-features-3d">
+                        <div class="feature-3d">
+                            <div class="feature-icon-3d"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4>Indywidualne podejście</h4>
+                                <p>Każde dziecko jest inne - dopasowuję terapię</p>
+                            </div>
+                        </div>
+                        <div class="feature-3d">
+                            <div class="feature-icon-3d"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4>Bezpieczne metody</h4>
+                                <p>Delikatne techniki dostosowane do wieku</p>
+                            </div>
+                        </div>
+                        <div class="feature-3d">
+                            <div class="feature-icon-3d"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4>Współpraca z rodzicami</h4>
+                                <p>Uczę jak ćwiczyć w domu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-credentials-3d">
+                        <div class="credential-3d">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Magister AWF</span>
+                        </div>
+                        <div class="credential-3d">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certyfikowany NDT-BOBATH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section - SEO important -->
+    <section class="section-3d symptoms-section" id="symptoms">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Objawy</span>
+                <h2 class="section-title-3d">Z czym warto się <span class="gradient-text-3d">zgłosić?</span></h2>
+                <p class="section-desc-3d">Rodzicu - jeśli zauważasz któryś z tych objawów, umów się na konsultację. Wczesna interwencja to klucz do sukcesu!</p>
+            </div>
+            <div class="symptoms-grid">
+                <div class="symptoms-group" data-animate="fade-right">
+                    <div class="symptoms-header">
+                        <span class="symptoms-icon"><i class="fas fa-baby"></i></span>
+                        <h3>Niemowlęta</h3>
+                    </div>
+                    <ul class="symptoms-list">
+                        <li><i class="fas fa-circle"></i> Asymetria ułożeniowa (układanie się tylko na jedną stronę)</li>
+                        <li><i class="fas fa-circle"></i> Niechęć do leżenia na brzuszku</li>
+                        <li><i class="fas fa-circle"></i> Opóźniony rozwój ruchowy (brak obrotów, pełzania)</li>
+                        <li><i class="fas fa-circle"></i> Prężenie się i odginanie główki do tyłu</li>
+                        <li><i class="fas fa-circle"></i> Problem z ssaniem lub karmieniem</li>
+                        <li><i class="fas fa-circle"></i> Niesymetryczne ruchy rączek i nóżek</li>
+                        <li><i class="fas fa-circle"></i> Płaczliwość i niepokój przy zmianie pozycji</li>
+                    </ul>
+                </div>
+                <div class="symptoms-group" data-animate="fade-left">
+                    <div class="symptoms-header">
+                        <span class="symptoms-icon"><i class="fas fa-child"></i></span>
+                        <h3>Dzieci starsze</h3>
+                    </div>
+                    <ul class="symptoms-list">
+                        <li><i class="fas fa-circle"></i> Chodzenie na palcach</li>
+                        <li><i class="fas fa-circle"></i> Wady postawy (skoliozy, plecy okrągłe)</li>
+                        <li><i class="fas fa-circle"></i> Płaskostopie i koślawość stóp</li>
+                        <li><i class="fas fa-circle"></i> Potykanie się o własne nóżki</li>
+                        <li><i class="fas fa-circle"></i> Problemy z koncentracją (zaburzenia SI)</li>
+                        <li><i class="fas fa-circle"></i> Nieprawidłowy wzorzec chodu</li>
+                        <li><i class="fas fa-circle"></i> Bóle kręgosłupa i napięcie mięśniowe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with 3D Cards -->
+    <section class="section-3d services-3d-section" id="services">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Metody</span>
+                <h2 class="section-title-3d">Nowoczesne <span class="gradient-text-3d">metody terapii</span></h2>
+                <p class="section-desc-3d">Kliknij w kartę, aby dowiedzieć się więcej</p>
+            </div>
+            <div class="services-3d-grid">
+                <div class="service-3d-card" data-animate="fade-up" data-delay="0" onclick="flipCard(this)">
+                    <div class="card-3d-inner">
+                        <div class="card-3d-front">
+                            <div class="service-icon-3d"><i class="fas fa-brain"></i></div>
+                            <h3>Integracja Sensoryczna</h3>
+                            <span class="service-age">3-12 lat</span>
+                            <div class="card-click-hint">Kliknij, aby dowiedzieć się więcej</div>
+                        </div>
+                        <div class="card-3d-back">
+                            <h3>Terapia SI</h3>
+                            <p>Wspieramy prawidłowe przetwarzanie bodźców sensorycznych. Pomoc w koncentracji i koordynacji.</p>
+                            <ul>
+                                <li>Terapia zaburzeń SI</li>
+                                <li>Poprawa koncentracji</li>
+                                <li>Rozwój motoryczny</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-3d-card" data-animate="fade-up" data-delay="100" onclick="flipCard(this)">
+                    <div class="card-3d-inner">
+                        <div class="card-3d-front">
+                            <div class="service-icon-3d"><i class="fas fa-baby"></i></div>
+                            <h3>NDT-BOBATH</h3>
+                            <span class="service-age">Od niemowlęctwa</span>
+                            <div class="card-click-hint">Kliknij, aby dowiedzieć się więcej</div>
+                        </div>
+                        <div class="card-3d-back">
+                            <h3>NDT-BOBATH</h3>
+                            <p>Metoda neurorozwojowa normalizująca napięcie mięśniowe i wspierająca rozwój.</p>
+                            <ul>
+                                <li>Praca z asymetrią</li>
+                                <li>Normalizacja napięcia</li>
+                                <li>Stymulacja rozwoju</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-3d-card" data-animate="fade-up" data-delay="200" onclick="flipCard(this)">
+                    <div class="card-3d-inner">
+                        <div class="card-3d-front">
+                            <div class="service-icon-3d"><i class="fas fa-shoe-prints"></i></div>
+                            <h3>3D Terapia Stóp</h3>
+                            <span class="service-age">2-14 lat</span>
+                            <div class="card-click-hint">Kliknij, aby dowiedzieć się więcej</div>
+                        </div>
+                        <div class="card-3d-back">
+                            <h3>3D Terapia</h3>
+                            <p>Trójplaszczyznowa korekcja wad stóp. Nowoczesna metoda z doskonałymi efektami.</p>
+                            <ul>
+                                <li>Korekcja stóp koślawych</li>
+                                <li>Wady postawy</li>
+                                <li>Indywidualne wkładki</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-3d-card" data-animate="fade-up" data-delay="300" onclick="flipCard(this)">
+                    <div class="card-3d-inner">
+                        <div class="card-3d-front">
+                            <div class="service-icon-3d"><i class="fas fa-band-aid"></i></div>
+                            <h3>Taping Medyczny</h3>
+                            <span class="service-age">W każdym wieku</span>
+                            <div class="card-click-hint">Kliknij, aby dowiedzieć się więcej</div>
+                        </div>
+                        <div class="card-3d-back">
+                            <h3>Taping</h3>
+                            <p>Specjalistyczne oklejawanie wspierające terapię i korygujące wzorce ruchu.</p>
+                            <ul>
+                                <li>Korekcja postawy</li>
+                                <li>Redukcja bólu</li>
+                                <li>Wspieranie mięśni</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-3d-card" data-animate="fade-up" data-delay="400" onclick="flipCard(this)">
+                    <div class="card-3d-inner">
+                        <div class="card-3d-front">
+                            <div class="service-icon-3d"><i class="fas fa-hand-paper"></i></div>
+                            <h3>TMPI</h3>
+                            <span class="service-age">Dzieci i dorośli</span>
+                            <div class="card-click-hint">Kliknij, aby dowiedzieć się więcej</div>
+                        </div>
+                        <div class="card-3d-back">
+                            <h3>TMPI</h3>
+                            <p>Terapia Manualna Powięziowa Integralna - zaawansowana praca z powięzią.</p>
+                            <ul>
+                                <li>Uwalnianie napięć</li>
+                                <li>Praca z bliznami</li>
+                                <li>Poprawa ruchomości</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-3d-card" data-animate="fade-up" data-delay="500" onclick="flipCard(this)">
+                    <div class="card-3d-inner">
+                        <div class="card-3d-front">
+                            <div class="service-icon-3d"><i class="fas fa-baby-carriage"></i></div>
+                            <h3>Praca z niemowlętami</h3>
+                            <span class="service-age">0-12 miesięcy</span>
+                            <div class="card-click-hint">Kliknij, aby dowiedzieć się więcej</div>
+                        </div>
+                        <div class="card-3d-back">
+                            <h3>Niemowlęta</h3>
+                            <p>Specjalistyczna terapia dla najmłodszych - od noworodków do roku.</p>
+                            <ul>
+                                <li>Pomoc przy asymetrii</li>
+                                <li>Problemy z karmieniem</li>
+                                <li>Wsparcie rozwoju</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <p class="card-desc">Zgłoś się do mnie, jeśli Twój maluch: pręży się i odchyla główkę do tyłu, ma asymetrię ułożeniową, niechętnie leży na brzuszku, chodzi na palcach, ma opóźniony rozwój ruchowy</p>
+        </div>
+
+
+    </section>
+
+    <!-- Interactive Counter Section -->
+    <section class="counter-3d-section">
+        <div class="container-3d">
+            <div class="counter-3d-grid">
+                <div class="counter-3d-item" data-animate="zoom-in">
+                    <div class="counter-3d-icon"><i class="fas fa-baby"></i></div>
+                    <div class="counter-3d-number" data-count="1000">0</div>
+                    <div class="counter-3d-label">Dzieci w terapii</div>
+                </div>
+                <div class="counter-3d-item" data-animate="zoom-in" data-delay="100">
+                    <div class="counter-3d-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="counter-3d-number" data-count="20">0</div>
+                    <div class="counter-3d-label">Lat doświadczenia</div>
+                </div>
+                <div class="counter-3d-item" data-animate="zoom-in" data-delay="200">
+                    <div class="counter-3d-icon"><i class="fas fa-smile"></i></div>
+                    <div class="counter-3d-number" data-count="99">0</div>
+                    <div class="counter-3d-suffix">%</div>
+                    <div class="counter-3d-label">Zadowolonych rodziców</div>
+                </div>
+                <div class="counter-3d-item" data-animate="zoom-in" data-delay="300">
+                    <div class="counter-3d-icon"><i class="fas fa-award"></i></div>
+                    <div class="counter-3d-number" data-count="12">0</div>
+                    <div class="counter-3d-label">Certyfikatów</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-3d" id="gallery">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Galeria</span>
+                <h2 class="section-title-3d">Zobacz naszą <span class="gradient-text-3d">przestrzeń</span></h2>
+            </div>
+            <div class="gallery-3d-grid">
+                <div class="gallery-3d-item large" data-animate="fade-up">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Sala terapii 1</span>
+                    </div>
+                </div>
+                <div class="gallery-3d-item" data-animate="fade-up" data-delay="100">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Sala zabaw</span>
+                    </div>
+                </div>
+                <div class="gallery-3d-item" data-animate="fade-up" data-delay="200">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Recepcja</span>
+                    </div>
+                </div>
+                <div class="gallery-3d-item" data-animate="fade-up" data-delay="300">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Sprzęt SI</span>
+                    </div>
+                </div>
+                <div class="gallery-3d-item" data-animate="fade-up" data-delay="400">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Terapia indywidualna</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section-3d" id="pricing">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Cennik</span>
+                <h2 class="section-title-3d">Inwestycja w <span class="gradient-text-3d">zdrowie dziecka</span></h2>
+            </div>
+            <div class="pricing-3d-grid">
+                <div class="pricing-3d-card" data-animate="fade-up" data-delay="0">
+                    <div class="pricing-3d-header">
+                        <h3>Konsultacja</h3>
+                        <div class="pricing-3d-price">
+                            <span class="price-from">od</span>
+                            <span class="price-amount">120</span>
+                            <span class="price-currency">zł</span>
+                        </div>
+                        <span class="price-time">60 minut</span>
+                    </div>
+                    <ul class="pricing-3d-features">
+                        <li><i class="fas fa-check"></i> Wywiad z rodzicem</li>
+                        <li><i class="fas fa-check"></i> Badanie dziecka</li>
+                        <li><i class="fas fa-check"></i> Ocena rozwoju</li>
+                        <li><i class="fas fa-check"></i> Plan terapii</li>
+                    </ul>
+                    <button class="btn-3d btn-outline-3d btn-full" onclick="location.href='#contact'">Umów konsultację</button>
+                </div>
+
+                <div class="pricing-3d-card featured" data-animate="fade-up" data-delay="100">
+                    <div class="pricing-3d-badge">Najczęściej wybierane</div>
+                    <div class="pricing-3d-header">
+                        <h3>Wizyta terapeutyczna</h3>
+                        <div class="pricing-3d-price">
+                            <span class="price-from">od</span>
+                            <span class="price-amount">130</span>
+                            <span class="price-currency">zł</span>
+                        </div>
+                        <span class="price-time">45 minut</span>
+                    </div>
+                    <ul class="pricing-3d-features">
+                        <li><i class="fas fa-check"></i> Terapia indywidualna</li>
+                        <li><i class="fas fa-check"></i> Techniki specjalistyczne</li>
+                        <li><i class="fas fa-check"></i> Ćwiczenia do domu</li>
+                        <li><i class="fas fa-check"></i> Notatka dla rodzica</li>
+                    </ul>
+                    <button class="btn-3d btn-primary-3d btn-full" onclick="location.href='#contact'">Umów wizytę</button>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Preparation Section -->
+    <section class="section-3d prep-section" id="preparation">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Pierwsza wizyta</span>
+                <h2 class="section-title-3d">Jak <span class="gradient-text-3d">przygotować się</span> do wizyty?</h2>
+                <p class="section-desc-3d">Rodzice często się stresują - oto co warto wiedzieć</p>
+            </div>
+            <div class="prep-grid" data-animate="fade-up">
+                <div class="prep-item">
+                    <div class="prep-icon"><i class="fas fa-book-medical"></i></div>
+                    <h4>Książeczka zdrowia</h4>
+                    <p>Zabierz ze sobą książeczkę zdrowia dziecka z wpisami o przebytych chorobach i szczepieniach.</p>
+                </div>
+                <div class="prep-item">
+                    <div class="prep-icon"><i class="fas fa-tshirt"></i></div>
+                    <h4>Wygodne ubranko</h4>
+                    <p>Ubierz dziecko w wygodne ubranko, które nie krępuje ruchów - najlepiej dresik lub body.</p>
+                </div>
+                <div class="prep-item">
+                    <div class="prep-icon"><i class="fa-solid fa-face-smile"></i></div>
+                    <h4>Ulubiona zabawka</h4>
+                    <p>Weź ze sobą ulubioną zabawkę malucha - pomoże mu to poczuć się bezpieczniej w nowym miejscu.</p>
+                </div>
+                <div class="prep-item">
+                    <div class="prep-icon"><i class="fas fa-file-medical"></i></div>
+                    <h4>Dokumentacja medyczna</h4>
+                    <p>Jeśli posiadasz wyniki badań, prześwietlenia lub opinie innych specjalistów - weź je ze sobą.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-3d testimonials-section" id="testimonials">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Opinie</span>
+                <h2 class="section-title-3d">Co mówią <span class="gradient-text-3d">rodzice</span></h2>
+            </div>
+            <div class="testimonials-carousel" data-animate="fade-up">
+                <div class="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Pani Aniu bardzo dziękujemy! Syn po 3 miesiącach terapii zaczął samodzielnie siadać. Profesjonalne podejście i ciepło, którego brakowało nam u innych fizjoterapeutów."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <strong>Anna M.</strong>
+                                <span>mama 8-miesięcznego Jasia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Świetna terapeutka! Córka z asymetrią główki po 5 wizytach pokazała ogromne postępy. Metody dobrane indywidualnie, zawsze dostosowane do stanu dziecka."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <strong>Katarzyna L.</strong>
+                                <span>mama 4-miesięcznej Zuzi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Najlepsza decyzja jaką podjęliśmy. Taping medyczny i ćwiczenia domowe polecone przez Panią Anię zrobiły cuda. Polecamy każdemu rodzicowi!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <strong>Marek i Justyna</strong>
+                                <span>rodzice 2-letniego Antosia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Integracja sensoryczna u Pani Ani to strzał w dziesiątkę. Syn przestał się bać nowych bodźców, jest spokojniejszy i bardziej zainteresowany otoczeniem."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <strong>Monika S.</strong>
+                                <span>mama 3-letniego Kuby</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToSlide(0)"></span>
+                        <span class="dot" onclick="goToSlide(1)"></span>
+                        <span class="dot" onclick="goToSlide(2)"></span>
+                        <span class="dot" onclick="goToSlide(3)"></span>
+                    </div>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-3d contact-3d-section" id="contact">
+        <div class="container-3d">
+            <div class="section-header-3d" data-animate="fade-up">
+                <span class="section-tag-3d">Kontakt</span>
+                <h2 class="section-title-3d">Umów <span class="gradient-text-3d">wizytę</span></h2>
+            </div>
+            <div class="contact-3d-grid">
+                <div class="contact-3d-info" data-animate="fade-right">
+                    <div class="contact-3d-method">
+                        <div class="contact-3d-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Zadzwoń</h4>
+                            <a href="tel:+48604942795">+48 604 942 795</a>
+                        </div>
+                    </div>
+                    <div class="contact-3d-method">
+                        <div class="contact-3d-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Napisz</h4>
+                            <a href="mailto:trycha84@interia.pl">trycha84@interia.pl</a>
+                        </div>
+                    </div>
+                    <div class="contact-3d-method">
+                        <div class="contact-3d-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>ul. Górna 14, Frydrychowice</p>
+                        </div>
+                    </div>
+                    <div class="contact-3d-method">
+                        <div class="contact-3d-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Godziny</h4>
+                            <p>Pon-Pt: 9:00-18:00<br>Sob: 9:00-14:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-3d-form" data-animate="fade-left">
+                    <form id="contactForm3D">
+                        <div class="form-3d-group">
+                            <input type="text" id="parentName3D" required placeholder=" ">
+                            <label for="parentName3D">Imię rodzica</label>
+                        </div>
+                        <div class="form-3d-row">
+                            <div class="form-3d-group">
+                                <input type="text" id="childName3D" placeholder=" ">
+                                <label for="childName3D">Imię dziecka</label>
+                            </div>
+                            <div class="form-3d-group">
+                                <input type="text" id="childAge3D" placeholder=" ">
+                                <label for="childAge3D">Wiek dziecka</label>
+                            </div>
+                        </div>
+                        <div class="form-3d-group">
+                            <input type="tel" id="phone3D" required placeholder=" ">
+                            <label for="phone3D">Telefon</label>
+                        </div>
+                        <div class="form-3d-group">
+                            <textarea id="message3D" rows="4" placeholder=" "></textarea>
+                            <label for="message3D">Opisz problem</label>
+                        </div>
+                        <div class="form-3d-checkbox">
+                            <input type="checkbox" id="rodo3D" required>
+                            <label for="rodo3D">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z przepisami RODO.</label>
+                        </div>
+                        <button type="submit" class="btn-3d btn-primary-3d btn-full">
+                            <span>Wyślij wiadomość</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-3d">
+        <div class="container-3d">
+            <div class="footer-3d-grid">
+                <div class="footer-3d-brand">
+                    <a href="#" class="logo-3d">
+                        <img class="logo" src="./pics/logo.png" alt="FIZJOKIDS">
+                    </a>
+                    <p>Nowoczesna fizjoterapia dziecięca. Pomagamy najmłodszym rozwijać się prawidłowo.</p>
+                </div>
+                <div class="footer-3d-links">
+                    <h4>Na skróty</h4>
+                    <a href="#home">Start</a>
+                    <a href="#about">O mnie</a>
+                    <a href="#services">Metody</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+                <div class="footer-3d-links">
+                    <h4>Metody</h4>
+                    <a href="#services">Integracja Sensoryczna</a>
+                    <a href="#services">NDT-BOBATH</a>
+                    <a href="#services">3D Terapia stóp</a>
+                    <a href="#services">Taping</a>
+                </div>
+                <div class="footer-3d-contact">
+                    <h4>Kontakt</h4>
+                    <p><i class="fas fa-phone"></i> +48 604 942 795</p>
+                    <p><i class="fas fa-envelope"></i> trycha84@interia.pl</p>
+                    <p><i class="fas fa-map-marker-alt"></i> ul. Górna 14, Frydrychowice</p>
+                </div>
+            </div>
+            <div class="footer-3d-bottom">
+                <p>&copy; 2026 FIZJOKIDS. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
