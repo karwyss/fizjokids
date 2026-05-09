@@ -1969,6 +1969,38 @@ body {
         overflow-x: hidden;
     }
     
+    .counter-3d-section {
+        padding: 40px 0;
+    }
+    
+    .counter-3d-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 0 20px;
+    }
+    
+    .counter-3d-icon {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .counter-3d-number {
+        font-size: 1.5rem;
+    }
+    
+    .counter-3d-suffix {
+        font-size: 1.5rem;
+    }
+    
+    .counter-3d-label {
+        font-size: 0.7rem;
+    }
+    
+    .container-3d {
+        padding: 0 20px;
+        overflow-x: hidden;
+    }
+    
     .nav-links {
         display: none;
         position: fixed;
@@ -2182,12 +2214,43 @@ body {
     }
     
     .counter-3d-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 0 10px;
+    }
+    
+    .counter-3d-icon {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
     }
     
     .counter-3d-number {
-        font-size: 2rem;
+        font-size: 1.2rem;
+    }
+    
+    .counter-3d-suffix {
+        font-size: 1.2rem;
+    }
+    
+    .counter-3d-label {
+        font-size: 0.6rem;
+    }
+    
+    .counter-3d-section {
+        padding: 15px 0;
+    }
+    
+    .counter-3d-grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .counter-3d-item {
+        flex: 1;
+        min-width: 0;
     }
     
     .prep-grid {
